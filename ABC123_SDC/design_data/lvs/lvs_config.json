@@ -3,8 +3,8 @@
     "INCLUDE_CONFIGS": [
         "$LVS_ROOT/tech/$PDK/lvs_config.base.json"
     ],
-    "TOP_SOURCE": "ABC123TOP",
-    "TOP_LAYOUT": "ABC123TOP",
+    "TOP_SOURCE": "ABC123_SDC",
+    "TOP_LAYOUT": "ABC123_SDC",
     "EXTRACT_FLATGLOB": [
         ""
     ],
@@ -26,5 +26,5 @@
     "LVS_VERILOG_FILES": [
         ""
     ],
-    "LAYOUT_FILE": "$UPRJ_ROOT/ABC123_SDC/design_data/lvs/ABC123TOP.gds"
+    "LAYOUT_FILE": "$UPRJ_ROOT/ABC123_SDC/design_data/lvs/ABC123_SDC.gds"
 }
