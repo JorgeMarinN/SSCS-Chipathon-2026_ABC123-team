@@ -31,7 +31,6 @@ C {devices/iopin.sym} 10 -240 0 0 {name=p2 lab=VDD}
 C {devices/iopin.sym} 10 -210 0 0 {name=p3 lab=VSS}
 C {devices/ipin.sym} -20 -210 0 0 {name=p4 lab=CTR}
 C {devices/opin.sym} 100 -240 0 0 {name=p5 lab=VOUT}
-C {SDC_GF/SDC_pts/MInimum_Inv.sym} -10 100 0 0 {name=x1}
 C {symbols/nfet_03v3.sym} 100 -120 1 0 {name=M1
 L=0.28u
 W=2.4u
@@ -62,3 +61,4 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
+C {INV/INV.sym} -10 100 0 0 {name=x1}

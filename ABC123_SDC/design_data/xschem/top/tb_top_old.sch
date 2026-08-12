@@ -5,8 +5,6 @@ V {}
 S {}
 F {}
 E {}
-T {This test extract the transfer function of the system, it saves in a txt file the results to be 
-analyzed through a python script found in the "CODIGOS" folder, } -740 360 0 0 0.4 0.4 {}
 N -640 250 -640 290 { lab=VSS}
 N -140 220 -140 260 { lab=VSS}
 N -140 140 -140 160 { lab=V_Si}
@@ -113,7 +111,7 @@ compose vin_var start=2p stop=5.02p step=0.2p
 foreach val $&vin_var
   alter C_SENS $val
   save v(DOUT_CLOAD)
-  tran 0.1n 50u 20u
+  tran 1n 500u 200u
   run
 end
 wrdata /foss/designs/SSCS-Chipathon-2026_ABC123-team/sim_data/data_SDC_CSWEEP.txt tran1.v(DOUT_CLOAD) tran2.v(DOUT_CLOAD) tran3.v(DOUT_CLOAD) tran4.v(DOUT_CLOAD) tran5.v(DOUT_CLOAD) tran6.v(DOUT_CLOAD) tran7.v(DOUT_CLOAD) tran8.v(DOUT_CLOAD) tran9.v(DOUT_CLOAD) tran10.v(DOUT_CLOAD) tran11.v(DOUT_CLOAD) tran12.v(DOUT_CLOAD) tran13.v(DOUT_CLOAD) tran14.v(DOUT_CLOAD) tran15.v(DOUT_CLOAD) tran16.v(DOUT_CLOAD)
