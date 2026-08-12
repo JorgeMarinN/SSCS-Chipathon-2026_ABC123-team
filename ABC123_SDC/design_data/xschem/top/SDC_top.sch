@@ -38,20 +38,18 @@ N 270 1430 300 1430 {lab=#net2}
 N 190 1430 230 1430 {lab=V_Ri}
 N 190 1430 190 1480 {lab=V_Ri}
 N 790 1530 830 1530 {lab=VCTRL}
-N 290 1560 330 1560 {lab=Vctrl}
-N 380 1010 410 1010 {lab=Vss}
-N 380 980 410 980 {lab=Vdd}
+N 290 1560 330 1560 {lab=VCTRL}
+N 380 1010 410 1010 {lab=VSS}
+N 380 980 410 980 {lab=VDD}
 N 520 1180 560 1180 {lab=D_buff}
 N 420 1080 460 1080 {lab=DOUT_CLOAD}
 N 420 1080 420 1180 {lab=DOUT_CLOAD}
 C {devices/lab_pin.sym} 430 1520 0 1 {name=p1 sig_type=std_logic lab=VIN_1}
-C {devices/lab_pin.sym} 410 1010 3 0 {name=p3 sig_type=std_logic lab=Vss}
-C {devices/lab_pin.sym} 410 980 1 0 {name=p6 sig_type=std_logic lab=Vdd}
 C {devices/lab_pin.sym} 930 1490 0 1 {name=p7 sig_type=std_logic lab=VIN_2}
 C {devices/lab_pin.sym} 380 1180 3 1 {name=p12 sig_type=std_logic lab=DOUT_CLOAD}
-C {devices/lab_pin.sym} 310 1130 1 0 {name=p14 sig_type=std_logic lab=Vdd}
+C {devices/lab_pin.sym} 310 1130 1 0 {name=p14 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} 170 1270 0 0 {name=p16 sig_type=std_logic lab=VIN_1}
-C {devices/lab_pin.sym} 310 1320 3 0 {name=p17 sig_type=std_logic lab=Vss}
+C {devices/lab_pin.sym} 310 1320 3 0 {name=p17 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} 160 1180 0 0 {name=p20 sig_type=std_logic lab=VIN_2}
 C {devices/lab_pin.sym} 380 1440 1 0 {name=l5 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} 380 1560 3 0 {name=l6 sig_type=std_logic lab=VSS}
@@ -64,20 +62,13 @@ C {devices/lab_pin.sym} 810 1330 2 0 {name=p5 sig_type=std_logic lab=V_pre_gate}
 C {devices/lab_pin.sym} 980 1450 1 0 {name=p9 sig_type=std_logic lab=V_no_buff_s}
 C {devices/lab_pin.sym} 460 1480 1 0 {name=p11 sig_type=std_logic lab=V_no_buff_r}
 C {devices/lab_pin.sym} 760 1230 0 1 {name=p10 sig_type=std_logic lab=DOUT_CLOAD}
-C {SDC_GF/SDC_pts/Phase_Detector.sym} 310 1230 0 0 {name=x1}
-C {SDC_GF/SDC_pts/Transmission_Gate.sym} 760 1300 0 0 {name=x2}
-C {SDC_GF/Osc_pts/Buffer.sym} 500 1180 0 0 {name=x5}
 C {devices/lab_pin.sym} 500 1160 0 0 {name=l3 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} 500 1200 0 0 {name=l4 sig_type=std_logic lab=VSS}
-C {SDC_GF/Osc_pts/Buffer.sym} 430 1280 0 0 {name=x6}
 C {devices/lab_pin.sym} 430 1260 0 0 {name=l9 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} 430 1300 0 0 {name=l10 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} 230 1370 0 0 {name=l14 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} 230 1490 0 0 {name=l16 sig_type=std_logic lab=VSS}
-C {SDC_GF/SDC_pts/Transmission_Gate.sym} 250 1430 0 0 {name=x7}
 C {devices/lab_pin.sym} 250 1360 0 1 {name=l17 sig_type=std_logic lab=VDD}
-C {SDC_GF/Osc_pts/Osc_GF_MARTIM_var.sym} 380 1510 0 0 {name=x3}
-C {SDC_GF/Osc_pts/Osc_GF_MARTIM_var.sym} 880 1480 0 0 {name=x4}
 C {devices/lab_pin.sym} 190 1460 0 0 {name=p13 sig_type=std_logic lab=V_Ri}
 C {ipin.sym} 190 1540 3 0 {name=p15 lab=CREF}
 C {ipin.sym} 690 1510 3 0 {name=p18 lab=CSENS}
@@ -90,3 +81,10 @@ C {devices/lab_pin.sym} 560 1180 3 0 {name=p22 sig_type=std_logic lab=D_buff
 C {devices/lab_pin.sym} 480 1280 3 0 {name=p23 sig_type=std_logic lab=ND_buff
 }
 C {opin.sym} 460 1080 0 0 {name=p24 lab=DOUT_CLOAD}
+C {BUFF/BUFF.sym} 500 1180 0 0 {name=x5}
+C {BUFF/BUFF.sym} 430 1280 0 0 {name=x6}
+C {DFF/DFF.sym} 310 1230 0 0 {name=x1}
+C {OSC/OSC.sym} 380 1510 0 0 {name=x3}
+C {OSC/OSC.sym} 880 1480 0 0 {name=x4}
+C {TGATE/TGATE.sym} 250 1430 0 0 {name=x7}
+C {TGATE/TGATE.sym} 760 1300 0 0 {name=x2}
