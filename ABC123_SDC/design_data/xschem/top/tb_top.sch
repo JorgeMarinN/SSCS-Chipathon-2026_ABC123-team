@@ -150,6 +150,6 @@ C {SDC_GF/SDC_pts/Transmission_Gate.sym} -580 80 0 0 {name=x7}
 C {devices/lab_pin.sym} -580 10 0 1 {name=l17 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} 0 180 3 0 {name=l18 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} -500 210 3 0 {name=l19 sig_type=std_logic lab=VSS}
-C {top/SDC_top.sym} 100 -1340 0 0 {name=x100}
+C {top/SDC_top.sym} 320 -770 0 0 {name=x100}
 C {devices/lab_pin.sym} 360 -340 1 0 {name=p8 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} 360 -20 3 0 {name=p13 sig_type=std_logic lab=VSS}
