@@ -16,5 +16,5 @@ project:
   team: "ABC123"                      # Your Team name
   discord: "jorgemarin_79135"                   # Optional: Discord username (for support / communication)
   description: "Capacitive sensor-to digital converter by ABC123 team for Chipathon 2026"  # Short one-line description
-  lvs_config: "https://github.com/JorgeMarinN/SSCS-Chipathon-2026_ABC123-team/blob/main/ABC123_SDC/design_data/lvs/lvs_config.json"
+  lvs_config: "./ABC123_SDC/design_data/lvs/lvs_config.json"
 
