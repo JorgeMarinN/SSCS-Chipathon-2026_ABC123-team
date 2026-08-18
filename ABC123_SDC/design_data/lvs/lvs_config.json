@@ -26,5 +26,5 @@
     "LVS_VERILOG_FILES": [
         ""
     ],
-    "LAYOUT_FILE": "$UPRJ_ROOT/ABC123_SDC/design_data/lvs/ABC123_SDC.gds"
+    "LAYOUT_FILE": "$UPRJ_ROOT/ABC123_SDC/design_data/gds/ABC123_SDC.gds"
 }
