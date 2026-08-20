@@ -48,7 +48,6 @@ pins:
     io_type: bidirectional
   - name: CCOREF_OUT            
     io_type: bidirectional
-
   - name: DOUT                 
     io_type: bidirectional
     
