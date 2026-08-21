@@ -18,5 +18,36 @@ project:
   description: "Capacitive sensor-to digital converter by ABC123 team for Chipathon 2026"  # Short one-line description
   lvs_config: "./ABC123_SDC/design_data/lvs/lvs_config.json"
 
-
-
+pins:
+  - name: VDD_1                 
+    io_type: power
+  - name: CSENS           
+    io_type: analog
+    secondary_esd: false
+  - name: CREF                 
+    io_type: analog
+    secondary_esd: false
+  - name: VCTRL                
+    io_type: analog
+    secondary_esd: true
+  - name: "CAPBANK[0]"      
+    io_type: input_cmos
+  - name: "CAPBANK[1]"        
+    io_type: input_cmos
+  - name: "CAPBANK[2]"        
+    io_type: input_cmos
+  - name: DFF_IN_SEL           
+    io_type: input_cmos
+  - name: DFF_IN1              
+    io_type: input_cmos
+  - name: DFF_IN2               
+    io_type: input_cmos
+  - name: CHOP                  
+    io_type: input_cmos
+  - name: CCOSENS_OUT           
+    io_type: bidirectional
+  - name: CCOREF_OUT            
+    io_type: bidirectional
+  - name: DOUT                 
+    io_type: bidirectional
+    
