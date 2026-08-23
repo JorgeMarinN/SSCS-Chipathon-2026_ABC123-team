@@ -5,86 +5,109 @@ V {}
 S {}
 F {}
 E {}
-N 690 1490 690 1510 { lab=V_Si}
-N 740 1240 740 1280 { lab=VDD}
-N 760 1230 760 1290 { lab=DOUT_CLOAD}
-N 740 1320 740 1360 { lab=VSS}
-N 660 1300 740 1300 {lab=V_Si}
-N 810 1450 830 1450 {lab=V_pre_gate}
-N 810 1300 810 1450 {lab=V_pre_gate}
-N 780 1300 810 1300 {lab=V_pre_gate}
-N 660 1300 660 1490 {lab=V_Si}
-N 660 1490 690 1490 {lab=V_Si}
-N 190 1520 190 1540 {lab=V_Ri}
-N 190 1520 330 1520 {lab=V_Ri}
-N 190 1480 190 1520 {lab=V_Ri}
-N 690 1490 830 1490 {lab=V_Si}
-N 430 1480 520 1480 {lab=V_no_buff_r}
-N 930 1450 1060 1450 {lab=V_no_buff_s}
-N 170 1270 220 1270 {lab=VIN_1}
-N 220 1270 260 1270 {lab=VIN_1}
-N 160 1180 220 1180 {lab=VIN_2}
-N 220 1180 260 1180 {lab=VIN_2}
-N 360 1180 420 1180 {lab=DOUT_CLOAD}
-N 420 1180 470 1180 {lab=DOUT_CLOAD}
-N 360 1280 400 1280 {lab=#net1}
-N 450 1280 480 1280 {lab=ND_buff}
-N 230 1370 230 1410 { lab=VDD}
-N 250 1360 250 1420 { lab=VDD}
-N 230 1450 230 1490 { lab=VSS}
-N 300 1480 330 1480 {lab=#net2}
-N 300 1430 300 1480 {lab=#net2}
-N 270 1430 300 1430 {lab=#net2}
-N 190 1430 230 1430 {lab=V_Ri}
-N 190 1430 190 1480 {lab=V_Ri}
-N 790 1530 830 1530 {lab=VCTRL}
-N 290 1560 330 1560 {lab=VCTRL}
+N 460 1460 460 1480 { lab=CSENS}
+N 510 1210 510 1250 { lab=VDD_1}
+N 530 1200 530 1260 { lab=DOUT}
+N 510 1290 510 1330 { lab=VSS}
+N 430 1270 510 1270 {lab=CSENS}
+N 580 1420 600 1420 {lab=V_pre_gate}
+N 580 1270 580 1420 {lab=V_pre_gate}
+N 550 1270 580 1270 {lab=V_pre_gate}
+N 430 1270 430 1460 {lab=CSENS}
+N 430 1460 460 1460 {lab=CSENS}
+N 460 1750 460 1770 {lab=CREF}
+N 460 1750 600 1750 {lab=CREF}
+N 460 1710 460 1750 {lab=CREF}
+N 460 1460 600 1460 {lab=CSENS}
+N 700 1710 790 1710 {lab=V_no_buff_r}
+N 700 1420 830 1420 {lab=V_no_buff_s}
+N 910 1620 960 1620 {lab=VIN_1}
+N 960 1620 1000 1620 {lab=VIN_1}
+N 900 1530 960 1530 {lab=VIN_2}
+N 960 1530 1000 1530 {lab=VIN_2}
+N 1100 1530 1160 1530 {lab=DOUT}
+N 1160 1530 1210 1530 {lab=DOUT}
+N 1100 1630 1140 1630 {lab=#net1}
+N 1190 1630 1220 1630 {lab=ND_buff}
+N 500 1600 500 1640 { lab=VDD_1}
+N 520 1590 520 1650 { lab=VDD_1}
+N 500 1680 500 1720 { lab=VSS}
+N 570 1710 600 1710 {lab=#net2}
+N 570 1660 570 1710 {lab=#net2}
+N 540 1660 570 1660 {lab=#net2}
+N 460 1660 500 1660 {lab=CREF}
+N 460 1660 460 1710 {lab=CREF}
+N 560 1500 600 1500 {lab=VCTRL}
+N 560 1790 600 1790 {lab=VCTRL}
 N 380 1010 410 1010 {lab=VSS}
-N 380 980 410 980 {lab=VDD}
-N 520 1180 560 1180 {lab=D_buff}
-N 420 1080 460 1080 {lab=DOUT_CLOAD}
-N 420 1080 420 1180 {lab=DOUT_CLOAD}
-C {devices/lab_pin.sym} 430 1520 0 1 {name=p1 sig_type=std_logic lab=VIN_1}
-C {devices/lab_pin.sym} 930 1490 0 1 {name=p7 sig_type=std_logic lab=VIN_2}
-C {devices/lab_pin.sym} 380 1180 3 1 {name=p12 sig_type=std_logic lab=DOUT_CLOAD}
-C {devices/lab_pin.sym} 310 1130 1 0 {name=p14 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} 170 1270 0 0 {name=p16 sig_type=std_logic lab=VIN_1}
-C {devices/lab_pin.sym} 310 1320 3 0 {name=p17 sig_type=std_logic lab=VSS}
-C {devices/lab_pin.sym} 160 1180 0 0 {name=p20 sig_type=std_logic lab=VIN_2}
-C {devices/lab_pin.sym} 380 1440 1 0 {name=l5 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} 380 1560 3 0 {name=l6 sig_type=std_logic lab=VSS}
-C {devices/lab_pin.sym} 880 1410 1 0 {name=l11 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} 880 1530 3 0 {name=l12 sig_type=std_logic lab=VSS}
-C {devices/lab_pin.sym} 740 1240 0 0 {name=l24 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} 740 1360 0 0 {name=l39 sig_type=std_logic lab=VSS}
-C {devices/lab_pin.sym} 660 1400 0 0 {name=p4 sig_type=std_logic lab=V_Si}
-C {devices/lab_pin.sym} 810 1330 2 0 {name=p5 sig_type=std_logic lab=V_pre_gate}
-C {devices/lab_pin.sym} 980 1450 1 0 {name=p9 sig_type=std_logic lab=V_no_buff_s}
-C {devices/lab_pin.sym} 460 1480 1 0 {name=p11 sig_type=std_logic lab=V_no_buff_r}
-C {devices/lab_pin.sym} 760 1230 0 1 {name=p10 sig_type=std_logic lab=DOUT_CLOAD}
-C {devices/lab_pin.sym} 500 1160 0 0 {name=l3 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} 500 1200 0 0 {name=l4 sig_type=std_logic lab=VSS}
-C {devices/lab_pin.sym} 430 1260 0 0 {name=l9 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} 430 1300 0 0 {name=l10 sig_type=std_logic lab=VSS}
-C {devices/lab_pin.sym} 230 1370 0 0 {name=l14 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} 230 1490 0 0 {name=l16 sig_type=std_logic lab=VSS}
-C {devices/lab_pin.sym} 250 1360 0 1 {name=l17 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} 190 1460 0 0 {name=p13 sig_type=std_logic lab=V_Ri}
-C {ipin.sym} 190 1540 3 0 {name=p15 lab=CREF}
-C {ipin.sym} 690 1510 3 0 {name=p18 lab=CSENS}
-C {iopin.sym} 380 980 2 0 {name=p19 lab=VDD}
+N 380 980 410 980 {lab=VDD_1}
+N 1260 1530 1300 1530 {lab=D_buff}
+N 1160 1430 1200 1430 {lab=DOUT}
+N 1160 1430 1160 1530 {lab=DOUT}
+N 880 1050 920 1050 {lab=VIN_2}
+N 970 1050 1000 1050 {lab=CCOSENS_OUT}
+N 880 1140 920 1140 {lab=VIN_1}
+N 970 1140 1000 1140 {lab=CCOREF_OUT}
+N 700 1460 860 1460 {lab=VIN_2}
+N 700 1750 860 1750 {lab=VIN_1}
+N 860 1460 860 1530 {lab=VIN_2}
+N 860 1680 860 1750 {lab=VIN_1}
+N 860 1620 860 1680 {lab=VIN_1}
+N 860 1620 910 1620 {lab=VIN_1}
+N 860 1530 900 1530 {lab=VIN_2}
+C {devices/lab_pin.sym} 1050 1480 1 0 {name=p14 sig_type=std_logic lab=VDD_1}
+C {devices/lab_pin.sym} 910 1620 1 0 {name=p16 sig_type=std_logic lab=VIN_1}
+C {devices/lab_pin.sym} 1050 1670 3 0 {name=p17 sig_type=std_logic lab=VSS}
+C {devices/lab_pin.sym} 900 1530 1 0 {name=p20 sig_type=std_logic lab=VIN_2}
+C {devices/lab_pin.sym} 650 1670 1 0 {name=l5 sig_type=std_logic lab=VDD_1}
+C {devices/lab_pin.sym} 650 1790 3 0 {name=l6 sig_type=std_logic lab=VSS}
+C {devices/lab_pin.sym} 650 1380 1 0 {name=l11 sig_type=std_logic lab=VDD_1}
+C {devices/lab_pin.sym} 650 1500 3 0 {name=l12 sig_type=std_logic lab=VSS}
+C {devices/lab_pin.sym} 510 1210 0 0 {name=l24 sig_type=std_logic lab=VDD_1}
+C {devices/lab_pin.sym} 510 1330 0 0 {name=l39 sig_type=std_logic lab=VSS}
+C {devices/lab_pin.sym} 580 1300 2 0 {name=p5 sig_type=std_logic lab=V_pre_gate}
+C {devices/lab_pin.sym} 750 1420 1 0 {name=p9 sig_type=std_logic lab=V_no_buff_s}
+C {devices/lab_pin.sym} 730 1710 1 0 {name=p11 sig_type=std_logic lab=V_no_buff_r}
+C {devices/lab_pin.sym} 530 1200 0 1 {name=p10 sig_type=std_logic lab=DOUT}
+C {devices/lab_pin.sym} 1240 1510 0 0 {name=l3 sig_type=std_logic lab=VDD_1}
+C {devices/lab_pin.sym} 1240 1550 0 0 {name=l4 sig_type=std_logic lab=VSS}
+C {devices/lab_pin.sym} 1170 1610 0 0 {name=l9 sig_type=std_logic lab=VDD_1}
+C {devices/lab_pin.sym} 1170 1650 0 0 {name=l10 sig_type=std_logic lab=VSS}
+C {devices/lab_pin.sym} 500 1600 0 0 {name=l14 sig_type=std_logic lab=VDD_1}
+C {devices/lab_pin.sym} 500 1720 0 0 {name=l16 sig_type=std_logic lab=VSS}
+C {devices/lab_pin.sym} 520 1590 0 1 {name=l17 sig_type=std_logic lab=VDD_1}
+C {ipin.sym} 460 1770 3 0 {name=p15 lab=CREF}
+C {ipin.sym} 460 1480 3 0 {name=p18 lab=CSENS}
+C {iopin.sym} 380 980 2 0 {name=p19 lab=VDD_1}
 C {iopin.sym} 380 1010 2 0 {name=p21 lab=VSS}
-C {ipin.sym} 290 1560 0 0 {name=p2 lab=VCTRL}
-C {ipin.sym} 790 1530 0 0 {name=p8 lab=VCTRL}
-C {devices/lab_pin.sym} 560 1180 3 0 {name=p22 sig_type=std_logic lab=D_buff
+C {ipin.sym} 560 1790 0 0 {name=p2 lab=VCTRL}
+C {devices/lab_pin.sym} 1300 1530 3 0 {name=p22 sig_type=std_logic lab=D_buff
 }
-C {devices/lab_pin.sym} 480 1280 3 0 {name=p23 sig_type=std_logic lab=ND_buff
+C {devices/lab_pin.sym} 1220 1630 3 0 {name=p23 sig_type=std_logic lab=ND_buff
 }
-C {opin.sym} 460 1080 0 0 {name=p24 lab=DOUT_CLOAD}
-C {BUFF/BUFF.sym} 500 1180 0 0 {name=x5}
-C {BUFF/BUFF.sym} 430 1280 0 0 {name=x6}
-C {DFF/DFF.sym} 310 1230 0 0 {name=x1}
-C {OSC/OSC.sym} 380 1510 0 0 {name=x3}
-C {OSC/OSC.sym} 880 1480 0 0 {name=x4}
-C {TGATE/TGATE.sym} 250 1430 0 0 {name=x7}
-C {TGATE/TGATE.sym} 760 1300 0 0 {name=x2}
+C {opin.sym} 1200 1430 0 0 {name=p24 lab=DOUT}
+C {BUFF/BUFF.sym} 1240 1530 0 0 {name=x5}
+C {BUFF/BUFF.sym} 1170 1630 0 0 {name=x6}
+C {DFF/DFF.sym} 1050 1580 0 0 {name=x1}
+C {OSC/OSC.sym} 650 1740 0 0 {name=x3}
+C {OSC/OSC.sym} 650 1450 0 0 {name=x4}
+C {TGATE/TGATE.sym} 520 1660 0 0 {name=x7}
+C {TGATE/TGATE.sym} 530 1270 0 0 {name=x2}
+C {ipin.sym} 770 970 0 0 {name=p3 lab=CAPBANK[0]}
+C {ipin.sym} 770 1000 0 0 {name=p6 lab=CAPBANK[1]}
+C {ipin.sym} 770 1030 0 0 {name=p25 lab=CAPBANK[2]}
+C {ipin.sym} 960 970 0 0 {name=p26 lab=CHOP}
+C {devices/lab_pin.sym} 560 1500 0 0 {name=p8 sig_type=std_logic lab=VCTRL}
+C {devices/lab_pin.sym} 950 1030 0 0 {name=l1 sig_type=std_logic lab=VDD_1}
+C {devices/lab_pin.sym} 950 1070 0 0 {name=l2 sig_type=std_logic lab=VSS}
+C {BUFF/BUFF.sym} 950 1050 0 0 {name=x8}
+C {devices/lab_pin.sym} 880 1050 0 0 {name=p27 sig_type=std_logic lab=VIN_2}
+C {devices/lab_pin.sym} 950 1120 0 0 {name=l7 sig_type=std_logic lab=VDD_1}
+C {devices/lab_pin.sym} 950 1160 0 0 {name=l8 sig_type=std_logic lab=VSS}
+C {BUFF/BUFF.sym} 950 1140 0 0 {name=x9}
+C {devices/lab_pin.sym} 880 1140 0 0 {name=p29 sig_type=std_logic lab=VIN_1}
+C {opin.sym} 1000 1050 0 0 {name=p31 lab=CCOSENS_OUT}
+C {opin.sym} 1000 1140 0 0 {name=p28 lab=CCOREF_OUT}
+C {ipin.sym} 1410 970 0 0 {name=p30 lab=DFF_IN_SEL}
+C {ipin.sym} 1410 1000 0 0 {name=p32 lab=DFF_IN1}
+C {ipin.sym} 1410 1030 0 0 {name=p33 lab=DFF_IN2}
