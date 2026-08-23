@@ -1,0 +1,12 @@
+** sch_path: /foss/designs/chipathon2026/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/OSC_INV/OSC_INV_v2.sch
+.subckt OSC_INV_v2 VIN VOUT VDD VSS Vcont
+*.PININFO VIN:I VOUT:O VDD:B VSS:B Vcont:I
+M4 net2 net3 VSS VSS nfet_03v3 L=2.5u W=0.42u nf=1 m=8
+M5 net1 net4 VDD VDD pfet_03v3 L=2.5u W=0.42u nf=1 m=8
+M6 net4 net3 VSS VSS nfet_03v3 L=2.5u W=0.42u nf=1 m=4
+M7 net4 net4 VDD VDD pfet_03v3 L=2.5u W=0.42u nf=1 m=4
+M8 net3 net3 VSS VSS nfet_03v3 L=2.5u W=0.42u nf=1 m=4
+M9 net3 Vcont VDD VDD pfet_03v3 L=2.5u W=0.42u nf=1 m=4
+M1 VOUT VIN net1 VDD pfet_03v3 L=2.5u W=15.825u nf=1 m=10
+M2 VOUT VIN net2 VSS nfet_03v3 L=2.5u W=6.33u nf=1 m=10
+.ends
