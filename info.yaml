@@ -19,10 +19,10 @@ project:
   lvs_config: "./ABC123_SDC/design_data/lvs/lvs_config.json"
 
 pins:
-  - name: VDD_1                 
-    io_type: power
-  - name: VSS_1
+  - name: VSS_1                 
     io_type: ground
+  - name: VDD_1
+    io_type: power
   - name: CSENS           
     io_type: analog
     secondary_esd: false
