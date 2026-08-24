@@ -21,6 +21,8 @@ project:
 pins:
   - name: VDD_1                 
     io_type: power
+  - name: VSS_1
+    io_type: ground
   - name: CSENS           
     io_type: analog
     secondary_esd: false
