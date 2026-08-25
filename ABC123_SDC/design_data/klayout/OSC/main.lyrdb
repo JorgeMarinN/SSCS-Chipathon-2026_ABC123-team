@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <report-database>
  <description>DRC Run Report at</description>
- <original-file>OSC_INV.gds</original-file>
+ <original-file>ABC123_SDC/design_data/klayout/OSC/OSC_RING.gds</original-file>
  <generator>drc: script='/foss/pdks/ciel/gf180mcu/versions/7b70722e33c03fcb5dabcf4d479fb0822d9251c9/gf180mcuD/libs.tech/klayout/tech/macros/gf180mcu_drc.lydrc'</generator>
- <top-cell>TOP</top-cell>
+ <top-cell>OSC_STAGE</top-cell>
  <tags>
  </tags>
  <categories>
@@ -4041,7 +4041,7 @@
  </categories>
  <cells>
   <cell>
-   <name>TOP</name>
+   <name>OSC_STAGE</name>
    <variant/>
    <layout-name/>
    <references>
