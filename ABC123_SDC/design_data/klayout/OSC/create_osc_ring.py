@@ -2,8 +2,10 @@
 import os
 import klayout.db as db
 # ============================================================# CONFIGURACIÓN# ============================================================
-INPUT_GDS = "OSC_STAGE.klay.gds"
-OUTPUT_GDS = "OSC_RING.klay.gds"
+filepath = os.path.dirname(os.path.abspath(__file__))
+print ('Camino de la carpeta: ',filepath)
+INPUT_GDS = filepath+"/OSC_INV_v2/OSC_INV_v2.gds"
+OUTPUT_GDS = filepath+"/OSC_RING.gds"
 NUM_STAGES = 3
 # Separación ENTRE LOS BORDES de cada VCO
 SPACING_UM = 1.0

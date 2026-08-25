@@ -1,0 +1,257 @@
+** sch_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/top/tb_top_chopper.sch
+**.subckt tb_top_chopper
+VCC VDD GND 3.3
+VSS VSS GND 0
+C_TEST V_Ri VSS 2p
+C_SENS V_Si VSS 2p
+C_Delta V_no_buff_s VSS 1f
+C_Delta2 V_no_buff_r VSS 1f
+V_iref VIN_1 net1 0
+.save i(v_iref)
+V_isens VIN_2 net2 0
+.save i(v_isens)
+V_dout net3 DOUT_CLOAD 0
+.save i(v_dout)
+x1 VDD VSS net3 net4 net1 net2 DFF
+x5 net4 net5 VDD VSS BUFF
+x6 DOUT_CLOAD net11 VDD VSS BUFF
+x7 V_Ri VDD net6 VDD VSS TGATE
+x4 VDD VIN_1 V_no_buff_r net7 net8 VSS Vcont OSC
+x2 VDD VIN_2 V_no_buff_s net9 net10 VSS Vcont OSC
+x3 V_Si DOUT_CLOAD V_pre_gate VDD VSS TGATE
+x8 net6 V_Ri VSS chp1 chp2 net7 net8 chopper
+Vcont Vcont GND 0.1
+V3 chp1 GND PULSE(0 3.3 0 1p 1p 50u 100u)
+V4 chp2 GND PULSE(3.3 0 0 1p 1p 50u 100u)
+x9 V_pre_gate V_Si VSS chp1 chp2 net9 net10 chopper
+**** begin user architecture code
+
+
+.ic v(v_si) = 3.3
+.ic v(v_ri) = 0
+*.save all
+.save v(DOUT_CLOAD) i(VCC)
+*.OPTION CSHUNT=0.01e-12
+.OPTION ABSTOL=1e-15.
+.OPTION GMIN=1.0e-12.
+.OPTION ITL1=1e5
+.OPTION RSHUNT=1e12
+.OPTION RELTOL=1e-5
+
+.option TEMP=27
+.control
+
+alter C_SENS 2.5p
+tran 1n 10m
+wrdata /foss/designs/SSCS-Chipathon-2026-ABC123-team/ABC123_SDC/sim_data/SDC_CIN_2_5P.txt v(DOUT_CLOAD)
+wrdata /foss/designs/SSCS-Chipathon-2026-ABC123-team/ABC123_SDC/sim_data/SDC_CIN_2_5P_PWR.txt i(VCC)
+
+*wrdata /foss/designs/SDC_techmigration_May2026/sim_data/SDC_CINsweep_v6p3_GF.txt tran1.v(DOUT_CLOAD) tran2.v(DOUT_CLOAD) tran3.v(DOUT_CLOAD) tran4.v(DOUT_CLOAD) tran5.v(DOUT_CLOAD) tran6.v(DOUT_CLOAD) tran7.v(DOUT_CLOAD) tran8.v(DOUT_CLOAD) tran9.v(DOUT_CLOAD) tran10.v(DOUT_CLOAD) tran11.v(DOUT_CLOAD) tran12.v(DOUT_CLOAD) tran13.v(DOUT_CLOAD) tran14.v(DOUT_CLOAD) tran15.v(DOUT_CLOAD) tran16.v(DOUT_CLOAD)
+*wrdata /foss/designs/SDC_techmigration_May2026/sim_data/SDC_CINsweep_v6p3_GF_PWR.txt tran16.i(VCC)
+*rusage time totalcputime
+*rusage everything > sim_stats.log
+.endc
+
+
+
+.include /foss/pdks/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice cap_mim
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice res_typical
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice moscap_typical
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice mimcap_typical
+* .lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice res_statistical
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  ABC123_SDC/design_data/xschem/DFF/DFF.sym # of pins=6
+** sym_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/DFF/DFF.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/DFF/DFF.sch
+.subckt DFF VDD GND D ND CLK IN
+*.ipin IN
+*.ipin CLK
+*.iopin VDD
+*.iopin GND
+*.opin ND
+*.opin D
+XM3 net1 IN VDD VDD pfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM4 NDIFF CLK net1 VDD pfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM9 NDIFF IN GND GND nfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM1 NODE2 NDIFF VDD VDD pfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM2 PDIFF CLK NODE2 VDD pfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM5 D ND VDD VDD pfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM6 ND D VDD VDD pfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM7 PDIFF NDIFF GND GND nfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM8 NODE3 CLK GND GND nfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM10 ND PDIFF NODE3 GND nfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM11 D ND GND GND nfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM12 ND D GND GND nfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM13 D NDIFF NODE4 GND nfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM14 NODE4 CLK GND GND nfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ends
+
+
+* expanding   symbol:  ABC123_SDC/design_data/xschem/BUFF/BUFF.sym # of pins=4
+** sym_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/BUFF/BUFF.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/BUFF/BUFF.sch
+.subckt BUFF VIN VOUT VDD VSS
+*.ipin VIN
+*.iopin VDD
+*.iopin VSS
+*.opin VOUT
+XM1 MID_BUFF VIN VDD VDD pfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM2 MID_BUFF VIN VSS VSS nfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM3 VOUT MID_BUFF VDD VDD pfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM4 VOUT MID_BUFF VSS VSS nfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ends
+
+
+* expanding   symbol:  ABC123_SDC/design_data/xschem/TGATE/TGATE.sym # of pins=5
+** sym_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/TGATE/TGATE.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/TGATE/TGATE.sch
+.subckt TGATE VIN CTR VOUT VDD VSS
+*.ipin VIN
+*.iopin VDD
+*.iopin VSS
+*.ipin CTR
+*.opin VOUT
+XM1 VOUT CTR VIN VSS nfet_03v3 L=0.28u W=2.4u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=4
+XM2 VOUT net1 VIN VDD pfet_03v3 L=0.28u W=7.2u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=4
+x1 CTR net1 VDD VSS INV
+.ends
+
+
+* expanding   symbol:  ABC123_SDC/design_data/xschem/OSC/OSC.sym # of pins=7
+** sym_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/OSC/OSC.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/OSC/OSC.sch
+.subckt OSC VDD N2 N1 CON_CV SENS_IN VSS Vcont
+*.ipin SENS_IN
+*.iopin VDD
+*.iopin VSS
+*.opin N1
+*.opin N2
+*.iopin CON_CV
+*.ipin Vcont
+x4 VDD N1 N1 SENS_IN VSS Vcont OSC_STAGE
+x2 VDD Pre_buff Pre_buff N1 VSS Vcont OSC_STAGE
+x3 VDD CON_CV SENS_IN Pre_buff VSS Vcont OSC_STAGE
+x1 Pre_buff N2 VDD VSS BUFF
+.ends
+
+
+* expanding   symbol:  ABC123_SDC/design_data/xschem/CHOPPER/chopper.sym # of pins=7
+** sym_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/CHOPPER/chopper.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/CHOPPER/chopper.sch
+.subckt chopper vin_n vin_p agnd chopper1 chopper2 vin_nn vin_pp
+*.ipin vin_n
+*.ipin vin_p
+*.ipin agnd
+*.ipin chopper1
+*.ipin chopper2
+*.opin vin_nn
+*.opin vin_pp
+XM2 vin_n chopper1 vin_nn agnd nfet_03v3 L=0.28u W=6u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=10
+XM1 vin_n chopper2 vin_pp agnd nfet_03v3 L=0.28u W=6u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=10
+XM3 vin_p chopper2 vin_nn agnd nfet_03v3 L=0.28u W=6u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=10
+XM4 vin_p chopper1 vin_pp agnd nfet_03v3 L=0.28u W=6u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=10
+.ends
+
+
+* expanding   symbol:  INV/INV.sym # of pins=4
+** sym_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/INV/INV.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/INV/INV.sch
+.subckt INV VIN VOUT VDD VSS
+*.ipin VIN
+*.iopin VDD
+*.iopin VSS
+*.opin VOUT
+XM1 VOUT VIN VDD VDD pfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM2 VOUT VIN VSS VSS nfet_03v3 L=0.28u W=1.87u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ends
+
+
+* expanding   symbol:  OSC_STAGE/OSC_STAGE.sym # of pins=6
+** sym_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/OSC_STAGE/OSC_STAGE.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/OSC_STAGE/OSC_STAGE.sch
+.subckt OSC_STAGE VDD CON_CV VOUT VIN VSS Vcont
+*.ipin VIN
+*.iopin VDD
+*.opin VOUT
+*.iopin CON_CV
+*.iopin VSS
+*.ipin Vcont
+x1 VDD VIN VOUT VSS Vcont OSC_INV
+x2 VOUT CON_CV VSS OSC_CAP
+.ends
+
+
+* expanding   symbol:  OSC_INV/OSC_INV.sym # of pins=5
+** sym_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/OSC_INV/OSC_INV.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/OSC_INV/OSC_INV.sch
+.subckt OSC_INV VDD VIN VOUT VSS Vcont
+*.ipin VIN
+*.opin VOUT
+*.iopin VDD
+*.iopin VSS
+*.ipin Vcont
+XM4 Nnet mirror VSS VSS nfet_03v3 L=2.5u W=0.22u nf=8 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM5 Pnet mirror2 VDD VDD pfet_03v3 L=2.5u W=0.29u nf=8 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM6 mirror2 mirror VSS VSS nfet_03v3 L=2.5u W=0.22u nf=4 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM7 mirror2 mirror2 VDD VDD pfet_03v3 L=2.5u W=0.29u nf=4 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM8 mirror mirror VSS VSS nfet_03v3 L=2.5u W=0.22u nf=4 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM9 mirror Vcont VDD VDD pfet_03v3 L=2.5u W=0.29u nf=4 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM1 VOUT VIN Pnet VDD pfet_03v3 L=2.5u W=15.825u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM2 VOUT VIN Nnet VSS nfet_03v3 L=0.5u W=6.33u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ends
+
+
+* expanding   symbol:  OSC_CAP/OSC_CAP.sym # of pins=3
+** sym_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/OSC_CAP/OSC_CAP.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/OSC_CAP/OSC_CAP.sch
+.subckt OSC_CAP TOP_B TOP_V BOT
+*.iopin TOP_V
+*.iopin TOP_B
+*.iopin BOT
+XC2 TOP_B BOT cap_mim_2f0fF c_width=21.25e-6 c_length=20e-6
+XC4 TOP_B BOT cap_mim_2f0fF c_width=21.25e-6 c_length=20e-6
+XC1 TOP_V BOT cap_mim_2f0fF c_width=21.25e-6 c_length=20e-6 m=2
+XC3 TOP_V BOT cap_mim_2f0fF c_width=21.25e-6 c_length=20e-6 m=2
+.ends
+
+.GLOBAL GND
+.end
