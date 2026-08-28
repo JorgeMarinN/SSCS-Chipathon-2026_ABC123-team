@@ -1,0 +1,8 @@
+** sch_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/xschem/CHOPPER/chopper.sch
+.subckt chopper vin_n vin_p VSS chopper1 chopper2 vin_nn vin_pp
+*.PININFO vin_n:I vin_p:I VSS:B chopper1:I chopper2:I vin_nn:O vin_pp:O
+M2 vin_n chopper1 vin_nn VSS nfet_03v3 L=0.28u W=6u nf=1 m=10
+M1 vin_n chopper2 vin_pp VSS nfet_03v3 L=0.28u W=6u nf=1 m=10
+M3 vin_p chopper2 vin_nn VSS nfet_03v3 L=0.28u W=6u nf=1 m=10
+M4 vin_p chopper1 vin_pp VSS nfet_03v3 L=0.28u W=6u nf=1 m=10
+.ends

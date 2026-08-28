@@ -6,7 +6,7 @@ S {}
 F {}
 E {}
 N 810 1030 810 1050 {lab=vin_n}
-N 810 1080 1010 1080 {lab=agnd}
+N 810 1080 1010 1080 {lab=VSS}
 N 1010 1030 1010 1050 {lab=vin_n}
 N 1180 1030 1180 1050 {lab=vin_p}
 N 1180 1030 1180 1050 {lab=vin_p}
@@ -30,7 +30,7 @@ N 1420 1000 1420 1030 {lab=vin_p}
 N 1460 1080 1510 1080 {lab=chopper1}
 N 720 1080 770 1080 {lab=chopper1}
 N 1420 950 1420 1000 {lab=vin_p}
-N 1180 1080 1420 1080 {lab=agnd}
+N 1180 1080 1420 1080 {lab=VSS}
 C {symbols/nfet_03v3.sym} 790 1080 0 0 {name=M2
 L=0.28u
 W=6u
@@ -57,15 +57,15 @@ C {lab_pin.sym} 720 1080 1 0 {name=p6 sig_type=std_logic lab=chopper1}
 C {lab_pin.sym} 1510 1080 1 0 {name=p5 sig_type=std_logic lab=chopper1}
 C {lab_pin.sym} 1420 950 0 0 {name=p7 sig_type=std_logic lab=vin_p
 }
-C {lab_pin.sym} 900 1080 1 0 {name=p8 sig_type=std_logic lab=agnd
+C {lab_pin.sym} 900 1080 1 0 {name=p8 sig_type=std_logic lab=VSS
 }
-C {lab_pin.sym} 1290 1080 1 0 {name=p9 sig_type=std_logic lab=agnd
+C {lab_pin.sym} 1290 1080 1 0 {name=p9 sig_type=std_logic lab=VSS
 }
 C {ipin.sym} 1760 990 0 0 {name=p11 lab=vin_n
 }
 C {ipin.sym} 1740 1050 0 0 {name=p13 lab=vin_p
 }
-C {ipin.sym} 1710 1130 0 0 {name=p15 lab=agnd
+C {iopin.sym} 1710 1130 0 0 {name=p15 lab=VSS
 }
 C {ipin.sym} 1720 1190 0 0 {name=p17 lab=chopper1
 }

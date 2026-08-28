@@ -3,12 +3,12 @@ import os
 import klayout.db as db
 # ============================================================# CONFIGURACIÓN# ============================================================
 filepath = os.path.dirname(os.path.abspath(__file__))
-print('Carpeta de esto archivo: ',filepath)
-INPUT_GDS = "/foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/klayout/OSC/OSC_RING.gds"
-OUTPUT_GDS = "/SDC_TOP.gds"
-NUM_STAGES = 2
+print ('Camino de la carpeta: ',filepath)
+INPUT_GDS = filepath+"/OSC_INV_v2/OSC_INV_v2.gds"
+OUTPUT_GDS = filepath+"/OSC_RING.gds"
+NUM_STAGES = 3
 # Separación ENTRE LOS BORDES de cada VCO
-SPACING_UM = 20.0
+SPACING_UM = 1.0
 # Nombre de la nueva top cell
 TOP_CELL_NAME = "OSC_STAGE"
 

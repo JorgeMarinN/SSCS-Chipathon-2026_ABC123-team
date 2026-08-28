@@ -1,0 +1,8 @@
+** sch_path: /foss/designs/SSCS-Chipathon-2026_ABC123-team/ABC123_SDC/design_data/klayout/BUFF/BUFF.sch
+.subckt BUFF VIN VOUT VDD VSS
+*.PININFO VIN:I VDD:B VSS:B VOUT:O
+M1 MID_BUFF VIN VDD VDD pfet_03v3 L=0.28u W=1.87u nf=1
+M2 MID_BUFF VIN VSS VSS nfet_03v3 L=0.28u W=1.87u nf=1
+M3 VOUT MID_BUFF VDD VDD pfet_03v3 L=0.28u W=1.87u nf=1
+M4 VOUT MID_BUFF VSS VSS nfet_03v3 L=0.28u W=1.87u nf=1
+.ends
